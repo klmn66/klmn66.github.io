@@ -149,6 +149,71 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://klmn66.github.io/2025/02/08/php%E7%9A%84%E5%BC%B1%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83%E5%92%8C%E5%BC%BA%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="大奉">
+      <meta itemprop="description" content="大奉的个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大奉">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/02/08/php%E7%9A%84%E5%BC%B1%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83%E5%92%8C%E5%BC%BA%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83/" class="post-title-link" itemprop="url">php的弱类型比较和强类型比较</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-02-08 22:10:27 / 修改时间：22:12:53" itemprop="dateCreated datePublished" datetime="2025-02-08T22:10:27+08:00">2025-02-08</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>一：掌握php的弱类型比较和强类型比较</p>
+<p>php中有两种比较符号</p>
+<p>===与 !== 同属强类型比较， 会同时比较字符串的值和类型</p>
+<p>== 与 != 同属弱类型比较， 会先将字符串换成相同类型，再作比较，属于弱类型比较<br>    如果字符串以数字开头，那么就会从字符串开头提取数字部分，然后将提取的数字部分作为数值进行比较，例如：123 == “123abc”结果为true，123.5 == “123”结果为true；<br>    如果字符串不以数字开头，则转换后的数值为 0，例如：123 == “abc123”结果为false，0 == “abc”结果为true。<br>    空数组与0、空字符串、false比较结果都为true。<br>    非空数组与数值、字符串、布尔值等其他类型比较时，都为false，例如[1,2] == 1结果为false。<br>**若为数字字符串，会按照字符串转换数字的规则转换<br>     123==0x7b;            #true，十六进制纯数字<br>         123==’0x7b’;        #false，十六进制数字字符串，被字母截断<br>         123==0173;            #true，八进制纯数字<br>         123==’0173’;        #false,八进制数字字符串，八进制被转换为173</p>
+<p>** 弱类型比较可以识别科学计数法（这一条常用于md5弱碰撞）</p>
+<pre><code>     md5(QNKCDZO)==md5(240610708);  #true
+</code></pre><h1 id="很明显，加密后都以0e开头，被识别成科学计数法"><a href="#很明显，加密后都以0e开头，被识别成科学计数法" class="headerlink" title="很明显，加密后都以0e开头，被识别成科学计数法"></a>很明显，加密后都以0e开头，被识别成科学计数法</h1><h1 id="而以0e开头的科学计数法都被识别成0"><a href="#而以0e开头的科学计数法都被识别成0" class="headerlink" title="而以0e开头的科学计数法都被识别成0"></a>而以0e开头的科学计数法都被识别成0</h1><p>md5(QNKCDZO)     #0e830400451993494058024219903391<br>md5(240610708)     #0e462097431906509019562988736854</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://klmn66.github.io/2025/01/16/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -350,7 +415,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
