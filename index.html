@@ -208,6 +208,65 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://klmn66.github.io/2025/02/15/web171/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="大奉">
+      <meta itemprop="description" content="大奉的个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大奉">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/02/15/web171/" class="post-title-link" itemprop="url">web171</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-02-15 00:00:00 / 修改时间：20:22:46" itemprop="dateCreated datePublished" datetime="2025-02-15T00:00:00+08:00">2025-02-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>打开题目如下<br><img src="/images/4.1.png" alt="图片"><br>查询的语句为<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27; or 1=1 --+</span><br></pre></td></tr></table></figure><br>即select username,password from user where username !=’flag’ and id = ‘1’ or 1=1 —+’ limit 1;<br>and优先级高于or，所以先username !=’flag’ and id=’1’ 再or 1=1<br>由于1 = 1始终为真，这样的查询会绕过id的限制,内容被输出<br><img src="/images/4.2.png" alt="图片"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://klmn66.github.io/2025/02/13/Web-php-unserialize/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -592,7 +651,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
